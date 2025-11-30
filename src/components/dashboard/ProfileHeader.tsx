@@ -13,14 +13,12 @@ export function ProfileHeader({ onDegenClick }: ProfileHeaderProps) {
     <div className="profile-header-container">
       <div className="profile-header">
         <div className="profile-header__left">
-          <img
+          <Image
             src={MOCK_USER_PROFILE.avatar}
             alt={MOCK_USER_PROFILE.name}
             className="profile-header__avatar"
-            onError={(e) => {
-              const target = e.target as HTMLImageElement;
-              target.style.backgroundColor = "#333";
-            }}
+            width={80}
+            height={80}
           />
           <div className="profile-header__info">
             <div className="profile-header__name-row">

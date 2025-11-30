@@ -1,6 +1,7 @@
 'use client';
 
 import '@/styles/dashboard.css';
+import Image from 'next/image';
 
 export function SmartFollowers() {
   return (
@@ -11,10 +12,12 @@ export function SmartFollowers() {
       <div className="smart-followers__count">1</div>
       <div className="smart-followers__top">
         <span className="smart-followers__label">Top followers</span>
-        <div className="smart-followers__user">
-          <div className="smart-followers__avatar" />
-          <span className="smart-followers__username">@Username</span>
-        </div>
+        <Image
+                  src="/assets/images/username-img.svg"
+                  alt="Info icon"
+                  width={128}
+                  height={38}
+                />
       </div>
     </div>
   );

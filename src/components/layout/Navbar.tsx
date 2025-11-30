@@ -63,7 +63,7 @@ export function Navbar() {
         </div>
         <div className="navbar__user">
           <Image
-            src="/assets/images/avatar-user.svg"
+            src="/assets/images/avatar-profile.svg"
             alt="User avatar"
             width={120}
             height={40}

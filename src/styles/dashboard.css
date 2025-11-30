@@ -168,8 +168,17 @@
   display: flex;
   gap: var(--space-3);
   overflow-x: auto;
+  overflow-y: hidden;
   padding-bottom: var(--space-2);
+  scrollbar-width: none;
+  /* Prevent wrapping to ensure horizontal scroll */
+  flex-wrap: nowrap;
 }
+
+.project-rankings__list::-webkit-scrollbar {
+  display: none;
+}
+
 
 .project-rankings__item {
   display: flex;
@@ -179,13 +188,7 @@
   background-color: var(--color-dark-200);
   border-radius: var(--radius-lg);
   min-width: 140px;
-}
-
-.project-rankings__icon {
-  width: 40px;
-  height: 40px;
-  border-radius: var(--radius-full);
-  background: linear-gradient(135deg, #4a9fff 0%, #0066cc 100%);
+  flex-shrink: 0;
 }
 
 .project-rankings__details {
@@ -287,7 +290,7 @@
   display: flex;
   flex-wrap: wrap;
   background-color: #131712;
-  gap: var(--space-4);
+  gap: var(--space-2);
   align-items: flex-end;
   padding: var(--space-4);
   border-radius: var(--radius-md);
@@ -297,7 +300,7 @@
   display: flex;
   flex-wrap: wrap;
   background-color: #131010;
-  gap: var(--space-4);
+  gap: var(--space-2);
   align-items: flex-end;
   padding: var(--space-4);
   border-radius: var(--radius-md);
@@ -318,17 +321,6 @@
 .sentiment-bubble-image {
   display: block;
   border-radius: 50%;
-}
-
-/* Percentage label */
-.sentiment-bubble__percentage {
-  position: absolute;
-  bottom: 10%;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: var(--text-xs);
-  font-weight: 600;
-  z-index: 1;
 }
 
 .sentiment-bubble__percentage--positive {

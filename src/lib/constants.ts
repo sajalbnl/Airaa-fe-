@@ -82,7 +82,7 @@ export const MOCK_AURA_DATA: AuraCardData = {
 export const MOCK_USER_PROFILE: UserProfile = {
   name: 'Alex Thompson',
   bio: 'Crypto enthusiast and DeFi researcher. Crypto enthusiast and DeFi researcher.',
-  avatar: '/assets/images/avatar-alex.svg',
+  avatar: '/assets/images/alex-avatar.svg',
   isVerified: true,
 };
 
