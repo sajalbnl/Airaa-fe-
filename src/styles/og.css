@@ -1,0 +1,63 @@
+/* OG Image specific styles - reference for JSX inline styles in @vercel/og */
+
+/*
+ * This file documents the style mappings used in OG image generation.
+ * Since @vercel/og uses JSX inline styles, this serves as a reference.
+ *
+ * The OG image dimensions are: 1200x630
+ *
+ * Color variables must be converted to actual values in the OG component
+ * since CSS variables don't work in @vercel/og ImageResponse
+ */
+
+/*
+ * OG Card Container:
+ * - width: 1200px
+ * - height: 630px
+ * - background: black with gradient overlay
+ * - display: flex
+ * - flexDirection: column
+ * - alignItems: center
+ * - justifyContent: center
+ */
+
+/*
+ * OG Card Inner:
+ * - width: 400px
+ * - padding: 48px
+ * - borderRadius: 24px
+ * - border: 2px solid {brand-border}
+ * - background: linear-gradient
+ * - boxShadow: glow effect
+ */
+
+/*
+ * OG Points Text:
+ * - fontSize: 96px
+ * - fontWeight: 700
+ * - color: {brand-text}
+ * - textShadow for glow effect
+ */
+
+/*
+ * OG Ring Effect:
+ * Using nested divs with gradient backgrounds and transforms
+ * to simulate the 3D ring appearance
+ */
+
+/*
+ * OG Progress Bar:
+ * - height: 6px
+ * - backgroundColor: #2a2a2a
+ * - borderRadius: 9999px
+ * - overflow: hidden
+ */
+
+/*
+ * OG User Badge:
+ * - display: flex
+ * - padding: 16px
+ * - backgroundColor: #1a1a1a
+ * - borderRadius: 12px
+ * - border: 1px solid #333
+ */

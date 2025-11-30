@@ -1,0 +1,354 @@
+/* Aura Card Styles */
+
+.aura-card {
+  --brand-color: #f5c842;
+  --brand-glow: rgba(245, 200, 66, 0.6);
+  --brand-ring: rgba(245, 200, 66, 0.8);
+  --brand-highlight: rgba(245, 200, 66, 0.3);
+  --brand-border: rgba(245, 200, 66, 0.5);
+  --brand-progress: #f5c842;
+  --brand-text: #f5c842;
+
+  position: relative;
+  width: 320px;
+  padding: var(--space-6);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.95) 100%);
+  border: 1px solid var(--brand-border);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+}
+
+/* Color variants */
+.aura-card--gold {
+  --brand-color: #f5c842;
+  --brand-glow: rgba(245, 200, 66, 0.6);
+  --brand-ring: rgba(245, 200, 66, 0.8);
+  --brand-highlight: rgba(245, 200, 66, 0.3);
+  --brand-border: rgba(245, 200, 66, 0.5);
+  --brand-progress: #f5c842;
+  --brand-text: #f5c842;
+}
+
+.aura-card--bronze {
+  --brand-color: #cd7f32;
+  --brand-glow: rgba(205, 127, 50, 0.6);
+  --brand-ring: rgba(205, 127, 50, 0.8);
+  --brand-highlight: rgba(205, 127, 50, 0.3);
+  --brand-border: rgba(205, 127, 50, 0.5);
+  --brand-progress: #cd7f32;
+  --brand-text: #cd7f32;
+}
+
+.aura-card--pink {
+  --brand-color: #ff69b4;
+  --brand-glow: rgba(255, 105, 180, 0.6);
+  --brand-ring: rgba(255, 105, 180, 0.8);
+  --brand-highlight: rgba(255, 105, 180, 0.3);
+  --brand-border: rgba(255, 105, 180, 0.5);
+  --brand-progress: #ff69b4;
+  --brand-text: #ff69b4;
+}
+
+.aura-card--green {
+  --brand-color: #00ff88;
+  --brand-glow: rgba(0, 255, 136, 0.6);
+  --brand-ring: rgba(0, 255, 136, 0.8);
+  --brand-highlight: rgba(0, 255, 136, 0.3);
+  --brand-border: rgba(0, 255, 136, 0.5);
+  --brand-progress: #00ff88;
+  --brand-text: #00ff88;
+}
+
+.aura-card--cyan {
+  --brand-color: #52e9ff;
+  --brand-glow: rgba(82, 233, 255, 0.6);
+  --brand-ring: rgba(82, 233, 255, 0.8);
+  --brand-highlight: rgba(82, 233, 255, 0.3);
+  --brand-border: rgba(82, 233, 255, 0.5);
+  --brand-progress: #52e9ff;
+  --brand-text: #52e9ff;
+}
+
+/* Card glow effect */
+.aura-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 50% 100%, var(--brand-glow) 0%, transparent 50%);
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+/* Frame border glow */
+.aura-card__frame {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-xl);
+  box-shadow:
+    inset 0 0 30px rgba(0, 0, 0, 0.5),
+    0 0 40px var(--brand-glow);
+  pointer-events: none;
+}
+
+/* Header */
+.aura-card__header {
+  text-align: center;
+  margin-bottom: var(--space-4);
+  position: relative;
+  z-index: 1;
+}
+
+.aura-card__tagline {
+  font-size: var(--text-sm);
+  color: var(--color-white);
+  font-weight: 500;
+}
+
+/* Points Section */
+.aura-card__points-section {
+  text-align: center;
+  margin-bottom: var(--space-5);
+  position: relative;
+  z-index: 1;
+}
+
+.aura-card__points {
+  font-size: 72px;
+  font-weight: 700;
+  color: var(--brand-text);
+  line-height: 1;
+  text-shadow: 0 0 40px var(--brand-glow);
+  margin-bottom: var(--space-1);
+}
+
+.aura-card__points-label {
+  font-size: var(--text-xs);
+  color: var(--color-gray-400);
+}
+
+/* Ring Container */
+.aura-card__ring-container {
+  position: relative;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-5);
+}
+
+/* Main Ring */
+.aura-card__ring {
+  position: relative;
+  width: 160px;
+  height: 80px;
+}
+
+.aura-card__ring-main {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: linear-gradient(180deg, var(--brand-color) 0%, var(--brand-ring) 50%, transparent 100%);
+  transform: perspective(200px) rotateX(70deg);
+  box-shadow:
+    0 0 60px var(--brand-glow),
+    0 0 120px var(--brand-glow),
+    inset 0 0 30px var(--brand-highlight);
+  animation: ringPulse 3s ease-in-out infinite;
+}
+
+@keyframes ringPulse {
+  0%, 100% {
+    box-shadow:
+      0 0 60px var(--brand-glow),
+      0 0 120px var(--brand-glow),
+      inset 0 0 30px var(--brand-highlight);
+  }
+  50% {
+    box-shadow:
+      0 0 80px var(--brand-glow),
+      0 0 160px var(--brand-glow),
+      inset 0 0 40px var(--brand-highlight);
+  }
+}
+
+/* Ring Reflection */
+.aura-card__ring-reflection {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 140px;
+  height: 60px;
+  background: linear-gradient(180deg, var(--brand-glow) 0%, transparent 100%);
+  border-radius: 50%;
+  filter: blur(20px);
+  opacity: 0.6;
+}
+
+/* Inner Ring Glow */
+.aura-card__ring-inner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100px;
+  height: 50px;
+  background: radial-gradient(ellipse, var(--brand-highlight) 0%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(10px);
+}
+
+/* Halo Effect */
+.aura-card__halo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, var(--brand-glow) 0%, transparent 60%);
+  opacity: 0.4;
+  animation: haloPulse 4s ease-in-out infinite;
+}
+
+@keyframes haloPulse {
+  0%, 100% {
+    opacity: 0.4;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+}
+
+/* Progress Section */
+.aura-card__progress-section {
+  margin-bottom: var(--space-5);
+  position: relative;
+  z-index: 1;
+}
+
+.aura-card__progress-bar-container {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.aura-card__progress-icon {
+  width: 20px;
+  height: 20px;
+  color: var(--color-gray-400);
+}
+
+.aura-card__progress-bar {
+  flex: 1;
+  height: 4px;
+  background-color: var(--color-dark-400);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.aura-card__progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--brand-progress) 0%, var(--brand-color) 100%);
+  border-radius: var(--radius-full);
+  transition: width 500ms ease;
+  box-shadow: 0 0 10px var(--brand-glow);
+}
+
+.aura-card__progress-end-icon {
+  width: 20px;
+  height: 20px;
+  color: var(--brand-color);
+  opacity: 0.6;
+}
+
+.aura-card__progress-label {
+  text-align: center;
+  font-size: var(--text-sm);
+  color: var(--color-gray-400);
+  margin-top: var(--space-2);
+}
+
+.aura-card__progress-label span {
+  color: var(--brand-text);
+  font-weight: 600;
+}
+
+.aura-card__progress-label--top {
+  color: var(--brand-text);
+}
+
+/* User Badge */
+.aura-card__user-badge {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-3) var(--space-4);
+  background-color: var(--color-dark-200);
+  border: 1px solid var(--color-dark-400);
+  border-radius: var(--radius-lg);
+  position: relative;
+  z-index: 1;
+}
+
+.aura-card__user-info {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.aura-card__user-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+  object-fit: cover;
+}
+
+.aura-card__user-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.aura-card__user-name {
+  font-size: var(--text-sm);
+  color: var(--color-white);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.aura-card__user-emoji {
+  font-size: var(--text-sm);
+}
+
+.aura-card__user-handle {
+  font-size: var(--text-xs);
+  color: var(--color-gray-400);
+}
+
+.aura-card__level-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: var(--space-2) var(--space-3);
+  background-color: var(--color-dark-300);
+  border-radius: var(--radius-md);
+}
+
+.aura-card__level-label {
+  font-size: var(--text-xs);
+  color: var(--color-gray-400);
+}
+
+.aura-card__level-value {
+  font-size: var(--text-sm);
+  color: var(--brand-text);
+  font-weight: 600;
+}

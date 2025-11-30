@@ -1,0 +1,215 @@
+/* Layout Styles - Navbar & Footer */
+
+/* Navbar */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-4) var(--space-6);
+  background-color: var(--color-black);
+  border-bottom: 1px solid var(--color-dark-300);
+  position: sticky;
+  top: 0;
+  z-index: var(--z-sticky);
+}
+
+.navbar__left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+}
+
+.navbar__logo {
+  font-size: var(--text-xl);
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--color-white);
+}
+
+.navbar__nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.navbar__nav-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-md);
+  color: var(--color-gray-400);
+  font-size: var(--text-sm);
+  transition: all var(--transition-fast);
+}
+
+.navbar__nav-item:hover {
+  color: var(--color-white);
+  background-color: var(--color-dark-200);
+}
+
+.navbar__nav-item--active {
+  color: var(--color-white);
+  background-color: var(--color-dark-300);
+}
+
+.navbar__nav-icon {
+  width: 16px;
+  height: 16px;
+  opacity: 0.7;
+}
+
+.navbar__right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.navbar__search {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  background-color: var(--color-dark-200);
+  border: 1px solid var(--color-dark-400);
+  border-radius: var(--radius-md);
+  min-width: 240px;
+}
+
+.navbar__search-icon {
+  width: 16px;
+  height: 16px;
+  color: var(--color-gray-400);
+}
+
+.navbar__search-input {
+  flex: 1;
+  font-size: var(--text-sm);
+  color: var(--color-gray-400);
+}
+
+.navbar__search-input::placeholder {
+  color: var(--color-gray-400);
+}
+
+.navbar__search-shortcut {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-size: var(--text-xs);
+  color: var(--color-gray-400);
+}
+
+.navbar__search-key {
+  padding: 2px 6px;
+  background-color: var(--color-dark-300);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-xs);
+}
+
+.navbar__user {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  background-color: var(--color-dark-200);
+  border-radius: var(--radius-full);
+}
+
+.navbar__user-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-full);
+  object-fit: cover;
+}
+
+.navbar__user-name {
+  font-size: var(--text-sm);
+  color: var(--color-white);
+}
+
+/* Footer */
+.footer {
+  padding: var(--space-12) var(--space-6);
+  background-color: var(--color-black);
+  border-top: 1px solid var(--color-dark-300);
+}
+
+.footer__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--space-16);
+}
+
+.footer__left {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  max-width: 320px;
+}
+
+.footer__logo {
+  font-size: var(--text-xl);
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--color-white);
+}
+
+.footer__description {
+  font-size: var(--text-sm);
+  color: var(--color-gray-400);
+  line-height: 1.6;
+}
+
+.footer__right {
+  display: flex;
+  gap: var(--space-16);
+}
+
+.footer__section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.footer__link {
+  font-size: var(--text-sm);
+  color: var(--color-gray-400);
+  transition: color var(--transition-fast);
+}
+
+.footer__link:hover {
+  color: var(--color-white);
+}
+
+.footer__bottom {
+  max-width: 1200px;
+  margin: var(--space-10) auto 0;
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--color-dark-300);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer__copyright {
+  font-size: var(--text-xs);
+  color: var(--color-gray-400);
+}
+
+.footer__legal {
+  display: flex;
+  gap: var(--space-4);
+}
+
+.footer__legal-link {
+  font-size: var(--text-xs);
+  color: var(--color-gray-400);
+  transition: color var(--transition-fast);
+}
+
+.footer__legal-link:hover {
+  color: var(--color-white);
+}
