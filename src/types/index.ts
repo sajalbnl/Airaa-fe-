@@ -33,8 +33,6 @@ export interface SmartFollower {
 export interface SentimentProject {
   id: string;
   name: string;
-  icon: string;
-  percentage?: number;
   size: 'small' | 'medium' | 'large';
 }
 
@@ -48,7 +46,7 @@ export interface UserProfile {
 export interface NavItem {
   label: string;
   href: string;
-  icon?: string;
+  icon: string;
   isActive?: boolean;
 }
 

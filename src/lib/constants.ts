@@ -94,25 +94,25 @@ export const MOCK_PROJECT_RANKINGS: ProjectRanking[] = [
 ];
 
 export const MOCK_BULLISH_PROJECTS: SentimentProject[] = [
-  { id: '1', name: 'Hyperliquid', icon: '/assets/icons/hyperliquid.svg', percentage: 2, size: 'large' },
-  { id: '2', name: 'Ethereum', icon: '/assets/icons/ethereum.svg', size: 'medium' },
-  { id: '3', name: 'USDC', icon: '/assets/icons/usdc.svg', size: 'large' },
-  { id: '4', name: 'Solana', icon: '/assets/icons/solana.svg', size: 'medium' },
-  { id: '5', name: 'Avalanche', icon: '/assets/icons/avalanche.svg', size: 'small' },
+  { id: '1', name: 'Hyperliquid', size: 'large' },
+  { id: '2', name: 'Ethereum', size: 'large' },
+  { id: '3', name: 'USDC', size: 'medium' },
+  { id: '4', name: 'Arb',  size: 'large' },
+  { id: '5', name: 'Avalanche',  size: 'small' },
 ];
 
 export const MOCK_BEARISH_PROJECTS: SentimentProject[] = [
-  { id: '1', name: 'Hyperliquid', icon: '/assets/icons/hyperliquid.svg', percentage: -2, size: 'large' },
-  { id: '2', name: 'Ethereum', icon: '/assets/icons/ethereum.svg', size: 'medium' },
-  { id: '3', name: 'USDC', icon: '/assets/icons/usdc.svg', size: 'large' },
-  { id: '4', name: 'Solana', icon: '/assets/icons/solana.svg', size: 'medium' },
-  { id: '5', name: 'Avalanche', icon: '/assets/icons/avalanche.svg', size: 'small' },
+  { id: '1', name: 'Hyperliquid', size: 'large' },
+  { id: '2', name: 'Ethereum',  size: 'large' },
+  { id: '3', name: 'USDC',  size: 'medium' },
+  { id: '4', name: 'Arb', size: 'large' },
+  { id: '5', name: 'Avalanche',  size: 'small' },
 ];
 
 export const NAV_ITEMS: NavItem[] = [
-  { label: 'Explore', href: '/explore', isActive: true },
-  { label: 'Campaigns', href: '/campaigns' },
-  { label: 'Terminal', href: '/terminal' },
+  { label: 'Explore', href: '/explore', isActive: true ,icon: '/assets/images/explore-icon.svg' },
+  { label: 'Campaigns', href: '/campaigns',icon: '/assets/images/campaigns-icon.svg'  },
+  { label: 'Terminal', href: '/terminal' ,icon: '/assets/images/terminal-icon.svg' },
 ];
 
 export const DASHBOARD_TABS = [

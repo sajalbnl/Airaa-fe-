@@ -267,7 +267,7 @@
 }
 
 .sentiment-panel {
-  background-color: var(--color-dark-100);
+  background-color: var(--color-black);
   border: 1px solid var(--color-dark-300);
   border-radius: var(--radius-lg);
   padding: var(--space-5);
@@ -283,66 +283,44 @@
   font-weight: 500;
 }
 
-.sentiment-panel__grid {
+.sentiment-panel__grid_bullish {
   display: flex;
   flex-wrap: wrap;
+  background-color: #131712;
   gap: var(--space-4);
   align-items: flex-end;
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
 }
 
-.sentiment-bubble {
-  position: relative;
+.sentiment-panel__grid_bearish {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: var(--radius-full);
-  overflow: hidden;
-  transition: transform var(--transition-fast);
+  flex-wrap: wrap;
+  background-color: #131010;
+  gap: var(--space-4);
+  align-items: flex-end;
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
 }
 
-.sentiment-bubble:hover {
+/* Bubble wrapper for positioning percentage */
+.sentiment-bubble-wrapper {
+  position: relative;
+  display: inline-flex;
+  transition: transform 0.2s ease;
+}
+
+.sentiment-bubble-wrapper:hover {
   transform: scale(1.05);
 }
 
-.sentiment-bubble--small {
-  width: 80px;
-  height: 80px;
+/* The bubble image itself */
+.sentiment-bubble-image {
+  display: block;
+  border-radius: 50%;
 }
 
-.sentiment-bubble--medium {
-  width: 120px;
-  height: 120px;
-}
-
-.sentiment-bubble--large {
-  width: 140px;
-  height: 140px;
-}
-
-.sentiment-bubble__bg {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.1) 0%, transparent 60%);
-}
-
-.sentiment-bubble__icon {
-  width: 60%;
-  height: 60%;
-  object-fit: contain;
-  position: relative;
-  z-index: 1;
-}
-
-.sentiment-bubble__label {
-  position: absolute;
-  bottom: 20%;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: var(--text-xs);
-  color: var(--color-white);
-  white-space: nowrap;
-}
-
+/* Percentage label */
 .sentiment-bubble__percentage {
   position: absolute;
   bottom: 10%;
@@ -350,6 +328,7 @@
   transform: translateX(-50%);
   font-size: var(--text-xs);
   font-weight: 600;
+  z-index: 1;
 }
 
 .sentiment-bubble__percentage--positive {
@@ -358,25 +337,4 @@
 
 .sentiment-bubble__percentage--negative {
   color: var(--color-error);
-}
-
-/* Bubble backgrounds */
-.sentiment-bubble--hyperliquid {
-  background: radial-gradient(circle, #1a4a3a 0%, #0a2a1a 100%);
-}
-
-.sentiment-bubble--ethereum {
-  background: radial-gradient(circle, #3a4a6a 0%, #1a2a3a 100%);
-}
-
-.sentiment-bubble--usdc {
-  background: radial-gradient(circle, #2a4a6a 0%, #1a2a3a 100%);
-}
-
-.sentiment-bubble--solana {
-  background: radial-gradient(circle, #3a4a5a 0%, #1a2a2a 100%);
-}
-
-.sentiment-bubble--avalanche {
-  background: radial-gradient(circle, #4a2a2a 0%, #2a1a1a 100%);
 }

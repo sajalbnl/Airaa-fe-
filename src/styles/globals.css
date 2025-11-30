@@ -5,8 +5,8 @@
   --color-black: #0D0F0C;
   --color-dark: #0a0a0a;
   --color-dark-100: #111111;
-  --color-dark-200: #1a1a1a;
-  --color-dark-300: #222222;
+  --color-dark-200: #0D0F0C;
+  --color-dark-300: #171A16;
   --color-dark-400: #2a2a2a;
   --color-gray-100: #333333;
   --color-gray-200: #444444;
@@ -18,7 +18,7 @@
   --color-white-subtle: rgba(255, 255, 255, 0.5);
 
   /* Brand colors */
-  --color-primary: #52e9ff;
+  --color-primary: #5AFFBA;
   --color-primary-glow: rgba(82, 233, 255, 0.4);
   --color-success: #00ff88;
   --color-warning: #f5c842;
