@@ -67,7 +67,7 @@ export default function Home() {
         </div>
 
         {/* Color variant selector for demo */}
-        <div
+        {/* <div
           style={{
             marginTop: '32px',
             padding: '20px',
@@ -114,7 +114,7 @@ export default function Home() {
               )
             )}
           </div>
-        </div>
+        </div> */}
       </main>
       <Footer />
 

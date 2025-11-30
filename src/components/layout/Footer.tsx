@@ -1,20 +1,26 @@
-'use client';
+"use client";
 
-import { FOOTER_SECTIONS } from '@/lib/constants';
-import '@/styles/layout.css';
+import { FOOTER_SECTIONS } from "@/lib/constants";
+import "@/styles/layout.css";
+import Image from "next/image";
 
 export function Footer() {
   return (
     <footer className="footer">
       <div className="footer__container">
         <div className="footer__left">
-          <span className="footer__logo">AIRAA</span>
+          <Image
+            src="/assets/images/logo-airaa.svg"
+            alt="airaa logo"
+            width={102}
+            height={17}
+          />
           <p className="footer__description">
-            Airaa is the intelligence layer for Web3—turning fragmented social and
-            on-chain data into real-time context. With contributor rankings,
-            reputation scores, AI-powered insights, and modular APIs, Airaa helps
-            communities and agents discover impact, decode narratives, and drive
-            decentralized coordination. Powered by Aura.
+            Airaa is the intelligence layer for Web3—turning fragmented social
+            and on-chain data into real-time context. With contributor rankings,
+            reputation scores, AI-powered insights, and modular APIs, Airaa
+            helps communities and agents discover impact, decode narratives, and
+            drive decentralized coordination. Powered by Aura.
           </p>
         </div>
         <div className="footer__right">

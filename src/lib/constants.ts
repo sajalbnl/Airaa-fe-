@@ -117,9 +117,9 @@ export const NAV_ITEMS: NavItem[] = [
 
 export const DASHBOARD_TABS = [
   { label: 'My dashboard', href: '#dashboard', isActive: true },
-  { label: 'Rewards', href: '#rewards', hasNotification: true },
-  { label: 'Wallets', href: '#wallets' },
-  { label: 'Ref', href: '#ref' },
+  // { label: 'Rewards', href: '#rewards', hasNotification: true },
+  // { label: 'Wallets', href: '#wallets' },
+  // { label: 'Ref', href: '#ref' },
 ];
 
 export const FOOTER_SECTIONS: FooterSection[] = [

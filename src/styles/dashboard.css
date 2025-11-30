@@ -1,9 +1,12 @@
 /* Dashboard Styles */
 
 .dashboard {
-  max-width: 1200px;
+  
   margin: 0 auto;
-  padding: var(--space-6);
+  padding-left: 20px;
+  padding-bottom: 120px;
+  padding-top: 32px;
+  padding-right: 20px;
 }
 
 /* Profile Header */
@@ -96,7 +99,7 @@
 .dashboard-tabs__item {
   position: relative;
   padding: var(--space-3) 0;
-  font-size: var(--text-sm);
+  font-size: var(--text-md);
   color: var(--color-gray-400);
   transition: color var(--transition-fast);
 }
@@ -115,8 +118,8 @@
   bottom: -1px;
   left: 0;
   right: 0;
-  height: 2px;
-  background-color: var(--color-primary);
+  height: 1px;
+  background-color: var(--color-white);
 }
 
 .dashboard-tabs__notification {

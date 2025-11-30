@@ -13,8 +13,8 @@ export function Navbar() {
           <Image
             src="/assets/images/logo-airaa.svg"
             alt="airaa logo"
-            width={120}
-            height={40}
+            width={102}
+            height={17}
           />
         </Link>
         <nav className="navbar__nav">
@@ -40,16 +40,13 @@ export function Navbar() {
       </div>
       <div className="navbar__right">
         <div className="navbar__search">
-          <svg
-            className="navbar__search-icon"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-          >
-            <circle cx="11" cy="11" r="8" />
-            <line x1="21" y1="21" x2="16.65" y2="16.65" />
-          </svg>
+          <Image
+            src="/assets/images/search.svg"
+            alt="search"
+            width={16}
+            height={16}
+          />
+          
           <input
             type="text"
             className="navbar__search-input"
@@ -65,9 +62,8 @@ export function Navbar() {
           <Image
             src="/assets/images/avatar-profile.svg"
             alt="User avatar"
-            width={120}
-            height={40}
-            className="navbar__user-avatar"
+            width={24}
+            height={24}
           />
           <span className="navbar__user-name">airaatwts</span>
         </div>
