@@ -6,6 +6,7 @@ import '@/styles/modal.css';
 import '@/styles/card.css';
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'),
   title: 'AIRAA - Intelligence Layer for Web3',
   description: 'Airaa is the intelligence layer for Web3—turning fragmented social and on-chain data into real-time context.',
   keywords: ['Web3', 'DeFi', 'Crypto', 'Intelligence', 'Analytics', 'Aura'],
