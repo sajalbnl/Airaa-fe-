@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { ModalOverlay } from "./ModalOverlay";
 import { AuraCardUI } from "../share/AuraCardUI";
 import { ShareButton } from "../share/ShareButton";
@@ -15,6 +16,8 @@ interface ShareModalProps {
 }
 
 export function ShareModal({ isOpen, onClose, cardData }: ShareModalProps) {
+  const [copied, setCopied] = useState(false);
+
   const ogUrl = generateOGUrl({
     user: cardData.username,
     points: cardData.points.toString(),
@@ -35,6 +38,8 @@ export function ShareModal({ isOpen, onClose, cardData }: ShareModalProps) {
   const handleCopy = async () => {
     try {
       await navigator.clipboard.writeText(ogUrl);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1500);
     } catch (err) {
       console.error("Failed to copy:", err);
     }
@@ -72,19 +77,36 @@ export function ShareModal({ isOpen, onClose, cardData }: ShareModalProps) {
           </div>
           <div className="share-modal__actions">
             <ShareButton onClick={handleShare} />
-            <button
-              className="share-modal__action-btn"
-              onClick={handleCopy}
-              aria-label="Copy link"
-            >
-              <Image
-                src="/assets/images/copy-icon.svg"
-                alt="Copy name"
-                style={{ cursor: "pointer" }}
-                width={16}
-                height={16}
-              />
-            </button>
+            <div style={{ position: "relative", display: "inline-block" }}>
+              {copied && (
+                <span style={{
+                  position: "absolute",
+                  bottom: "100%",
+                  left: "50%",
+                  transform: "translateX(-50%)",
+                  marginBottom: "4px",
+                  fontSize: "12px",
+                  fontWeight: "500",
+                  color: "#fff",
+                  whiteSpace: "nowrap"
+                }}>
+                  Copied!
+                </span>
+              )}
+              <button
+                className="share-modal__action-btn"
+                onClick={handleCopy}
+                aria-label="Copy link"
+              >
+                <Image
+                  src="/assets/images/copy-icon.svg"
+                  alt="Copy name"
+                  style={{ cursor: "pointer" }}
+                  width={16}
+                  height={16}
+                />
+              </button>
+            </div>
             <button
               className="share-modal__action-btn"
               onClick={handleDownload}
