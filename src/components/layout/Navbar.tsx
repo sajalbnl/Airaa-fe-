@@ -45,6 +45,7 @@ export function Navbar() {
             alt="search"
             width={16}
             height={16}
+            className="navbar__search-icon-btn"
           />
           
           <input

@@ -10,7 +10,7 @@
   --brand-text: #ffd738;
 
   position: relative;
-  width: 360px;
+  width: 350px;
   height: auto;
   padding: var(--space-3);
   padding-left: var(--space-3);
@@ -41,6 +41,7 @@
   --brand-border: rgba(245, 200, 66, 0.5);
   --brand-progress: #f5c842;
   --brand-text: #f5c842;
+  --brand-next-level: #cd7f32;
 }
 
 .aura-card--bronze {
@@ -51,6 +52,7 @@
   --brand-border: rgba(205, 127, 50, 0.5);
   --brand-progress: #cd7f32;
   --brand-text: #cd7f32;
+  --brand-next-level: #ff69b4;
 }
 
 .aura-card--pink {
@@ -61,6 +63,7 @@
   --brand-border: rgba(255, 105, 180, 0.5);
   --brand-progress: #ff69b4;
   --brand-text: #ff69b4;
+  --brand-next-level: #00ff88;
 }
 
 .aura-card--green {
@@ -71,6 +74,7 @@
   --brand-border: rgba(0, 255, 136, 0.5);
   --brand-progress: #00ff88;
   --brand-text: #00ff88;
+  --brand-next-level: #52e9ff;
 }
 
 .aura-card--cyan {
@@ -81,6 +85,7 @@
   --brand-border: rgba(82, 233, 255, 0.5);
   --brand-progress: #52e9ff;
   --brand-text: #52e9ff;
+  --brand-next-level: #52e9ff;
 }
 
 /* Card glow effect */
@@ -161,33 +166,6 @@
   margin-bottom: var(--space-16);
 }
 
-/* Ring Reflection */
-/* .aura-card__ring-reflection {
-  position: absolute;
-  top: 60%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 140px;
-  height: 60px;
-  background: linear-gradient(180deg, var(--brand-glow) 0%, transparent 100%);
-  border-radius: 50%;
-  filter: blur(20px);
-  opacity: 0.6;
-} */
-
-/* Halo Effect */
-/* .aura-card__halo {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 200px;
-  height: 200px;
-  background: radial-gradient(circle, var(--brand-glow) 0%, transparent 60%);
-  opacity: 0.4;
-  animation: haloPulse 4s ease-in-out infinite;
-} */
-
 /* Progress Section */
 .aura-card__progress-section {
   margin-bottom: var(--space-3);
@@ -239,7 +217,7 @@
 }
 
 .aura-card__progress-label span {
-  color: #ff9c54;
+  color: var(--brand-next-level);
   font-weight: 600;
 }
 
@@ -267,7 +245,7 @@
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(to right, #ffffff00, #ffd73880, #ffffff00);
+  background: linear-gradient(to right, transparent, var(--brand-border), transparent);
   border-radius: inherit;
   pointer-events: none;
 }
@@ -316,15 +294,15 @@
   padding: var(--space-2) var(--space-3);
   background: radial-gradient(
       164% 171.5% at -70.5% -74%,
-      rgba(255, 215, 56, 0.5) 10%,
+      var(--brand-glow) 10%,
       rgba(0, 0, 0, 0.7) 50%
     ) padding-box,
     linear-gradient(
       136.09deg,
-      rgba(255, 215, 56, 0.64) 3.92%,
-      rgba(255, 215, 56, 0.256) 29.89%,
-      rgba(255, 215, 56, 0.64) 61.36%,
-      rgba(255, 215, 56, 0.256) 94.05%
+      var(--brand-ring) 3.92%,
+      var(--brand-highlight) 29.89%,
+      var(--brand-ring) 61.36%,
+      var(--brand-highlight) 94.05%
     ) border-box;
   border: 1px solid transparent;
 
