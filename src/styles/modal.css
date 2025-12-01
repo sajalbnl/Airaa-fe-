@@ -155,6 +155,25 @@
   cursor: pointer;
 }
 
+.copy-btn {
+  position: relative;
+}
+
+.copy-tooltip {
+  position: absolute;
+  bottom: 110%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 12px;
+  font-weight: 500;
+  color: white;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+
+
+
 .share-modal__action-btn:hover {
   background-color: var(--color-dark-400);
 }

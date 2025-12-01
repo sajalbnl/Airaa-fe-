@@ -89,24 +89,8 @@ export function ShareModal({ isOpen, onClose, cardData }: ShareModalProps) {
           </div>
           <div className="share-modal__actions">
             <ShareButton onClick={handleShare} />
-            <div style={{ position: "relative", display: "inline-block" }}>
-              {copied && (
-                <span style={{
-                  position: "absolute",
-                  bottom: "100%",
-                  left: "50%",
-                  transform: "translateX(-50%)",
-                  marginBottom: "4px",
-                  fontSize: "12px",
-                  fontWeight: "500",
-                  color: "#fff",
-                  whiteSpace: "nowrap"
-                }}>
-                  Copied!
-                </span>
-              )}
               <button
-                className="share-modal__action-btn"
+                className="share-modal__action-btn copy-btn"
                 onClick={handleCopy}
                 aria-label="Copy link"
               >
@@ -117,8 +101,9 @@ export function ShareModal({ isOpen, onClose, cardData }: ShareModalProps) {
                   width={16}
                   height={16}
                 />
+                 {copied && <span className="copy-tooltip">Copied!</span>}
               </button>
-            </div>
+            
             <button
               className="share-modal__action-btn"
               onClick={handleDownload}
