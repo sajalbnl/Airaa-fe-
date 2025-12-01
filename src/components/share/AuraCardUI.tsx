@@ -1,8 +1,9 @@
-'use client';
+"use client";
 
-import type { AuraCardData } from '@/types';
-import { isAtTopLevel } from '@/lib/og';
-import '@/styles/card.css';
+import type { AuraCardData } from "@/types";
+import { isAtTopLevel } from "@/lib/og";
+import "@/styles/card.css";
+import Image from "next/image";
 
 interface AuraCardUIProps {
   data: AuraCardData;
@@ -87,14 +88,12 @@ export function AuraCardUI({ data }: AuraCardUIProps) {
       {/* User Badge */}
       <div className="aura-card__user-badge">
         <div className="aura-card__user-info">
-          <img
-            src={data.avatar}
-            alt={data.username}
-            className="aura-card__user-avatar"
-            onError={(e) => {
-              const target = e.target as HTMLImageElement;
-              target.style.backgroundColor = '#333';
-            }}
+          <Image
+            src="/assets/images/card-avatar.svg"
+            alt="avatar"
+            className="profile-header__avatar"
+            width={48}
+            height={48}
           />
           <div className="aura-card__user-details">
             <span className="aura-card__user-name">
