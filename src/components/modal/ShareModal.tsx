@@ -5,7 +5,7 @@ import { ModalOverlay } from "./ModalOverlay";
 import { AuraCardUI } from "../share/AuraCardUI";
 import { ShareButton } from "../share/ShareButton";
 import type { AuraCardData } from "@/types";
-import { generateOGUrl, generateTwitterShareUrl } from "@/lib/og";
+import { generateOGUrl, generateSharePageUrl, generateTwitterShareUrl } from "@/lib/og";
 import "@/styles/modal.css";
 import Image from "next/image";
 
@@ -30,8 +30,20 @@ export function ShareModal({ isOpen, onClose, cardData }: ShareModalProps) {
     nextLevel: cardData.nextLevel || undefined,
   });
 
+  const ogShareUrl = generateSharePageUrl({
+    user: cardData.username,
+    points: cardData.points.toString(),
+    date: cardData.date,
+    level: cardData.level,
+    color: cardData.colorVariant,
+    handle: cardData.handle,
+    progress: cardData.progress.toString(),
+    pointsToNext: cardData.pointsToNext.toString(),
+    nextLevel: cardData.nextLevel || undefined,
+  });
+
   const handleShare = () => {
-    const shareUrl = generateTwitterShareUrl(ogUrl, "My Aura Score 🔥");
+    const shareUrl = generateTwitterShareUrl(ogShareUrl, "My Aura Score 🔥");
     window.open(shareUrl, "_blank", "noopener,noreferrer");
   };
 

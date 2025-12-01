@@ -33,6 +33,22 @@ export function generateOGUrl(params: Partial<OGImageParams>): string {
   return `${SITE_URL}/api/og?${searchParams.toString()}`;
 }
 
+export function generateSharePageUrl(params: Partial<OGImageParams>): string {
+  const searchParams = new URLSearchParams();
+
+  if (params.user) searchParams.set('user', params.user);
+  if (params.points) searchParams.set('points', params.points);
+  if (params.date) searchParams.set('date', params.date);
+  if (params.level) searchParams.set('level', params.level);
+  if (params.color) searchParams.set('color', params.color);
+  if (params.handle) searchParams.set('handle', params.handle);
+  if (params.progress) searchParams.set('progress', params.progress);
+  if (params.pointsToNext) searchParams.set('pointsToNext', params.pointsToNext);
+  if (params.nextLevel) searchParams.set('nextLevel', params.nextLevel);
+
+  return `${SITE_URL}/share?${searchParams.toString()}`;
+}
+
 export function generateTwitterShareUrl(ogUrl: string, text: string): string {
   const encodedUrl = encodeURIComponent(ogUrl);
   const encodedText = encodeURIComponent(text);
