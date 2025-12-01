@@ -38,41 +38,26 @@ export function AuraCardUI({ data }: AuraCardUIProps) {
         <div className="aura-card__halo" />
 
         {/* Main Ring */}
-        <div className="aura-card__ring">
-          <div className="aura-card__ring-main" />
-          <div className="aura-card__ring-inner" />
-        </div>
+        
+         <Image
+          src="/assets/images/golden-ring.svg"
+          alt="golden ring"
+          width={340}
+          height={10}
+          className="aura-card__main-ring"
+        />
 
-        {/* Reflection */}
-        <div className="aura-card__ring-reflection" />
       </div>
 
       {/* Progress Section */}
       <div className="aura-card__progress-section">
         <div className="aura-card__progress-bar-container">
-          <svg
-            className="aura-card__progress-icon"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-          >
-            <rect x="3" y="3" width="18" height="18" rx="2" />
-            <line x1="9" y1="3" x2="9" y2="21" />
-          </svg>
-          <div className="aura-card__progress-bar">
-            <div
-              className="aura-card__progress-fill"
-              style={{ width: `${data.progress}%` }}
-            />
-          </div>
-          <svg
-            className="aura-card__progress-end-icon"
-            viewBox="0 0 24 24"
-            fill="currentColor"
-          >
-            <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
-          </svg>
+          <Image
+          src="/assets/images/progress-golden.svg"
+          alt="golden ring"
+          width={360}
+          height={20}
+        />
         </div>
         {isTop ? (
           <div className="aura-card__progress-label aura-card__progress-label--top">
@@ -91,14 +76,13 @@ export function AuraCardUI({ data }: AuraCardUIProps) {
           <Image
             src="/assets/images/card-avatar.svg"
             alt="avatar"
-            className="profile-header__avatar"
             width={48}
             height={48}
           />
           <div className="aura-card__user-details">
             <span className="aura-card__user-name">
               {data.username}
-              <span className="aura-card__user-emoji">🦉</span>
+              <span className="aura-card__user-emoji">🐳</span>
             </span>
             <span className="aura-card__user-handle">{data.handle}</span>
           </div>

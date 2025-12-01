@@ -3,8 +3,7 @@
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(4px);
+  background-color: rgba(0, 0, 0, 0.7);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -24,10 +23,10 @@
 
 .modal {
   position: relative;
-  background-color: var(--color-dark-100);
+  background-color: #0D0F0C;
   border: 1px solid var(--color-dark-400);
-  border-radius: var(--radius-xl);
-  max-width: 640px;
+  border-radius: var(--radius-lg);
+  max-width: 600px;
   width: 100%;
   max-height: 90vh;
   overflow: hidden;
@@ -120,17 +119,15 @@
   justify-content: center;
   gap: var(--space-2);
   padding: var(--space-3) var(--space-4);
-  background-color: var(--color-white);
-  color: var(--color-black);
+  background-color: #2B3D27;
+  color: var(--color-white);
   border-radius: var(--radius-lg);
   font-size: var(--text-sm);
   font-weight: 600;
   transition: all var(--transition-fast);
 }
 
-.share-modal__share-btn:hover {
-  background-color: var(--color-gray-500);
-}
+
 
 .share-modal__action-btn {
   display: flex;
@@ -140,14 +137,11 @@
   height: 44px;
   background-color: var(--color-dark-300);
   border-radius: var(--radius-lg);
-  color: var(--color-gray-400);
+  color: #171A16;
   transition: all var(--transition-fast);
 }
 
-.share-modal__action-btn:hover {
-  background-color: var(--color-dark-400);
-  color: var(--color-white);
-}
+
 
 .share-modal__action-icon {
   width: 20px;

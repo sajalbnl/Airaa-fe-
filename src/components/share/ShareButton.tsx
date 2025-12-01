@@ -7,7 +7,7 @@ interface ShareButtonProps {
 export function ShareButton({ onClick }: ShareButtonProps) {
   return (
     <button className="share-modal__share-btn" onClick={onClick}>
-      Share on X
+      Share on 
       <svg
         width="16"
         height="16"

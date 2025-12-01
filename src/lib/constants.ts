@@ -145,4 +145,4 @@ export const FOOTER_SECTIONS: FooterSection[] = [
   },
 ];
 
-export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://airaa.xyz';
+export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
