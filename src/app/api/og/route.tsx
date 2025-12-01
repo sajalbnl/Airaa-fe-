@@ -4,6 +4,15 @@ import type { AuraLevel, CardColorVariant } from '@/types';
 
 export const runtime = 'edge';
 
+// Map color variants to image file prefixes
+const COLOR_IMAGE_PREFIX: Record<CardColorVariant, string> = {
+  gold: 'golden',
+  bronze: 'bronze',
+  pink: 'pink',
+  green: 'green',
+  cyan: 'cyan',
+};
+
 const COLOR_SYSTEMS: Record<CardColorVariant, {
   brand: string;
   glow: string;
@@ -63,6 +72,9 @@ const COLOR_SYSTEMS: Record<CardColorVariant, {
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
 
+  // Get base URL from request or environment
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || new URL(request.url).origin;
+
   const user = searchParams.get('user') || 'Anonymous';
   const points = searchParams.get('points') || '0';
   const date = searchParams.get('date') || new Date().toLocaleDateString('en-US', {
@@ -73,12 +85,19 @@ export async function GET(request: NextRequest) {
   const level = (searchParams.get('level') || 'LOWKEY') as AuraLevel;
   const color = (searchParams.get('color') || 'gold') as CardColorVariant;
   const handle = searchParams.get('handle') || '@user';
-  const progress = parseInt(searchParams.get('progress') || '50', 10);
   const pointsToNext = searchParams.get('pointsToNext') || '480';
   const nextLevel = searchParams.get('nextLevel') as AuraLevel | null;
 
   const colors = COLOR_SYSTEMS[color] || COLOR_SYSTEMS.gold;
   const isAtTop = level === 'GOATED';
+
+  // Get color-specific image prefix
+  const imagePrefix = COLOR_IMAGE_PREFIX[color] || 'golden';
+
+  // Image URLs - these need to be absolute URLs for @vercel/og
+  const ringUrl = `${baseUrl}/assets/images/${imagePrefix}-ring.svg`;
+  const progressBarUrl = `${baseUrl}/assets/images/${imagePrefix}-progress.svg`;
+  const avatarUrl = `${baseUrl}/assets/images/card-avatar.svg`;
 
   return new ImageResponse(
     (
@@ -93,7 +112,7 @@ export async function GET(request: NextRequest) {
           fontFamily: 'system-ui, -apple-system, sans-serif',
         }}
       >
-        {/* Card Container - matching AuraCardUI */}
+        {/* Card Container - matching AuraCardUI exactly */}
         <div
           style={{
             width: '360px',
@@ -169,7 +188,7 @@ export async function GET(request: NextRequest) {
             </span>
           </div>
 
-          {/* Ring Container - Golden Ring Visual */}
+          {/* Ring Container - Using actual golden ring image */}
           <div
             style={{
               height: '95px',
@@ -180,68 +199,17 @@ export async function GET(request: NextRequest) {
               position: 'relative',
             }}
           >
-            {/* 3D Ring effect using ellipses */}
-            <div
-              style={{
-                display: 'flex',
-                position: 'relative',
-                width: '340px',
-                height: '80px',
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}
-            >
-              {/* Outer glow */}
-              <div
-                style={{
-                  position: 'absolute',
-                  width: '320px',
-                  height: '100px',
-                  borderRadius: '50%',
-                  background: `radial-gradient(ellipse, ${colors.glow} 0%, transparent 60%)`,
-                  opacity: 0.6,
-                }}
-              />
-              {/* Main ring - outer */}
-              <div
-                style={{
-                  position: 'absolute',
-                  width: '280px',
-                  height: '60px',
-                  borderRadius: '50%',
-                  border: `8px solid ${colors.brand}`,
-                  boxShadow: `0 0 30px ${colors.glow}, inset 0 0 20px ${colors.glow}`,
-                  background: 'transparent',
-                }}
-              />
-              {/* Inner shadow/depth */}
-              <div
-                style={{
-                  position: 'absolute',
-                  width: '260px',
-                  height: '50px',
-                  borderRadius: '50%',
-                  background: `linear-gradient(180deg, transparent 0%, ${colors.glow} 100%)`,
-                  opacity: 0.3,
-                  top: '20px',
-                }}
-              />
-              {/* Highlight on top */}
-              <div
-                style={{
-                  position: 'absolute',
-                  width: '200px',
-                  height: '20px',
-                  borderRadius: '50%',
-                  background: `linear-gradient(180deg, ${colors.brand} 0%, transparent 100%)`,
-                  opacity: 0.8,
-                  top: '-5px',
-                }}
-              />
-            </div>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={ringUrl}
+              alt="aura ring"
+              width={340}
+              height={270}
+              
+            />
           </div>
 
-          {/* Progress Section */}
+          {/* Progress Section - Using actual progress bar image */}
           <div
             style={{
               width: '100%',
@@ -254,80 +222,17 @@ export async function GET(request: NextRequest) {
             <div
               style={{
                 display: 'flex',
-                alignItems: 'center',
                 width: '100%',
-                gap: '0px',
               }}
             >
-              {/* Start Icon - Archive/Box icon */}
-              <div
-                style={{
-                  width: '24px',
-                  height: '24px',
-                  borderRadius: '4px',
-                  backgroundColor: '#000000',
-                  border: `1px solid ${colors.border}`,
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                }}
-              >
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
-                  <path d="M19 10V19C19 19.5304 18.7893 20.0391 18.4142 20.4142C18.0391 20.7893 17.5304 21 17 21H7C6.46957 21 5.96086 20.7893 5.58579 20.4142C5.21071 20.0391 5 19.5304 5 19V10M21 6V8C21 8.26522 20.8946 8.51957 20.7071 8.70711C20.5196 8.89464 20.2652 9 20 9H4C3.73478 9 3.48043 8.89464 3.29289 8.70711C3.10536 8.51957 3 8.26522 3 8V6C3 5.73478 3.10536 5.48043 3.29289 5.29289C3.48043 5.10536 3.73478 5 4 5H20C20.2652 5 20.5196 5.10536 20.7071 5.29289C20.8946 5.48043 21 5.73478 21 6Z" stroke={colors.brand} strokeWidth="1.5"/>
-                </svg>
-              </div>
-
-              {/* Progress Track */}
-              <div
-                style={{
-                  flex: 1,
-                  height: '10px',
-                  backgroundColor: '#0C0C0C',
-                  borderRadius: '5px',
-                  overflow: 'hidden',
-                  display: 'flex',
-                  border: '1px solid #171A16',
-                }}
-              >
-                <div
-                  style={{
-                    width: `${progress}%`,
-                    height: '100%',
-                    background: `linear-gradient(90deg, rgba(255, 215, 56, 0.5) 0%, ${colors.progress} 100%)`,
-                    borderRadius: '5px',
-                  }}
-                />
-              </div>
-
-              {/* Progress indicator line */}
-              <div
-                style={{
-                  width: '2px',
-                  height: '14px',
-                  backgroundColor: colors.brand,
-                  borderRadius: '1px',
-                  marginLeft: '-2px',
-                  marginRight: '8px',
-                }}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={progressBarUrl}
+                alt="progress bar"
+                width={320}
+                height={26}
+                
               />
-
-              {/* End Icon - Trophy/Star icon */}
-              <div
-                style={{
-                  width: '24px',
-                  height: '24px',
-                  borderRadius: '4px',
-                  backgroundColor: '#000000',
-                  border: `1px solid rgba(255, 156, 84, 0.5)`,
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                }}
-              >
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
-                  <path d="M8 21H16M12 17V21M6 3H18C18.5304 3 19.0391 3.21071 19.4142 3.58579C19.7893 3.96086 20 4.46957 20 5V7C20 8.06087 19.5786 9.07828 18.8284 9.82843C18.0783 10.5786 17.0609 11 16 11H8C6.93913 11 5.92172 10.5786 5.17157 9.82843C4.42143 9.07828 4 8.06087 4 7V5C4 4.46957 4.21071 3.96086 4.58579 3.58579C4.96086 3.21071 5.46957 3 6 3Z" stroke="#FF9C54" strokeWidth="1.5"/>
-                </svg>
-              </div>
             </div>
 
             {/* Progress Label */}
@@ -372,7 +277,6 @@ export async function GET(request: NextRequest) {
               alignItems: 'center',
               justifyContent: 'space-between',
               padding: '16px 4px',
-              borderTop: '1px solid rgba(255, 215, 56, 0.3)',
               position: 'relative',
             }}
           >
@@ -395,25 +299,17 @@ export async function GET(request: NextRequest) {
                 gap: '12px',
               }}
             >
-              {/* Avatar */}
-              <div
+              {/* Avatar - Using actual avatar image */}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={avatarUrl}
+                alt="avatar"
+                width={48}
+                height={48}
                 style={{
-                  width: '48px',
-                  height: '48px',
                   borderRadius: '8px',
-                  backgroundColor: '#1a1a1a',
-                  border: '1px solid #333',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  overflow: 'hidden',
                 }}
-              >
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
-                  <circle cx="12" cy="8" r="4" fill="#666"/>
-                  <path d="M4 20C4 16.6863 7.58172 14 12 14C16.4183 14 20 16.6863 20 20" stroke="#666" strokeWidth="2"/>
-                </svg>
-              </div>
+              />
               <div
                 style={{
                   display: 'flex',

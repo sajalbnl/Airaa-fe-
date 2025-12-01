@@ -1,6 +1,6 @@
 "use client";
 
-import type { AuraCardData } from "@/types";
+import type { AuraCardData, CardColorVariant } from "@/types";
 import { isAtTopLevel } from "@/lib/og";
 import "@/styles/card.css";
 import Image from "next/image";
@@ -9,8 +9,20 @@ interface AuraCardUIProps {
   data: AuraCardData;
 }
 
+// Map color variants to image file prefixes
+const COLOR_IMAGE_PREFIX: Record<CardColorVariant, string> = {
+  gold: 'golden',
+  bronze: 'bronze',
+  pink: 'pink',
+  green: 'green',
+  cyan: 'cyan',
+};
+
 export function AuraCardUI({ data }: AuraCardUIProps) {
   const isTop = isAtTopLevel(data.level);
+  const imagePrefix = COLOR_IMAGE_PREFIX[data.colorVariant] || 'golden';
+  const ringImage = `/assets/images/${imagePrefix}-ring.svg`;
+  const progressImage = `/assets/images/${imagePrefix}-progress.svg`;
 
   return (
     <div className={`aura-card aura-card--${data.colorVariant}`}>
@@ -40,8 +52,8 @@ export function AuraCardUI({ data }: AuraCardUIProps) {
         {/* Main Ring */}
         
          <Image
-          src="/assets/images/golden-ring.svg"
-          alt="golden ring"
+          src={ringImage}
+          alt="aura ring"
           width={340}
           height={10}
           className="aura-card__main-ring"
@@ -53,8 +65,8 @@ export function AuraCardUI({ data }: AuraCardUIProps) {
       <div className="aura-card__progress-section">
         <div className="aura-card__progress-bar-container">
           <Image
-          src="/assets/images/progress-golden.svg"
-          alt="golden ring"
+          src={progressImage}
+          alt="progress bar"
           width={360}
           height={20}
         />

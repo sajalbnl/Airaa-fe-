@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
-import { SITE_URL, MOCK_AURA_DATA } from '@/lib/constants';
+import {  MOCK_AURA_DATA } from '@/lib/constants';
 import { generateOGUrl } from '@/lib/og';
+import Link from 'next/link';
 
 export async function generateMetadata(): Promise<Metadata> {
   const ogUrl = generateOGUrl({
@@ -74,7 +75,7 @@ export default function SharePage() {
       >
         This page generates a preview when shared on social media.
       </p>
-      <a
+      <Link
         href="/"
         style={{
           padding: '12px 24px',
@@ -87,7 +88,7 @@ export default function SharePage() {
         }}
       >
         Go to Dashboard
-      </a>
+      </Link>
     </div>
   );
 }
