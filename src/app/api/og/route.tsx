@@ -21,6 +21,7 @@ const COLOR_SYSTEMS: Record<CardColorVariant, {
   border: string;
   progress: string;
   text: string;
+  nextLevel: string;
 }> = {
   gold: {
     brand: '#f5c842',
@@ -30,6 +31,7 @@ const COLOR_SYSTEMS: Record<CardColorVariant, {
     border: 'rgba(245, 200, 66, 0.5)',
     progress: '#ffd738',
     text: '#ffd738',
+    nextLevel: '#cd7f32',
   },
   bronze: {
     brand: '#cd7f32',
@@ -39,6 +41,7 @@ const COLOR_SYSTEMS: Record<CardColorVariant, {
     border: 'rgba(205, 127, 50, 0.5)',
     progress: '#cd7f32',
     text: '#cd7f32',
+    nextLevel: '#ff69b4',
   },
   pink: {
     brand: '#ff69b4',
@@ -48,6 +51,7 @@ const COLOR_SYSTEMS: Record<CardColorVariant, {
     border: 'rgba(255, 105, 180, 0.5)',
     progress: '#ff69b4',
     text: '#ff69b4',
+    nextLevel: '#00ff88',
   },
   green: {
     brand: '#00ff88',
@@ -57,6 +61,7 @@ const COLOR_SYSTEMS: Record<CardColorVariant, {
     border: 'rgba(0, 255, 136, 0.5)',
     progress: '#00ff88',
     text: '#00ff88',
+    nextLevel: '#52e9ff',
   },
   cyan: {
     brand: '#52e9ff',
@@ -66,6 +71,7 @@ const COLOR_SYSTEMS: Record<CardColorVariant, {
     border: 'rgba(82, 233, 255, 0.5)',
     progress: '#52e9ff',
     text: '#52e9ff',
+    nextLevel: '#52e9ff',
   },
 };
 
@@ -261,7 +267,7 @@ export async function GET(request: NextRequest) {
                   }}
                 >
                   {pointsToNext} pts to become a{' '}
-                  <span style={{ color: '#FF9C54', fontWeight: 600, marginLeft: '4px' }}>
+                  <span style={{ color: colors.nextLevel, fontWeight: 600, marginLeft: '4px' }}>
                     {nextLevel || 'COOKER'}
                   </span>
                 </span>
@@ -288,7 +294,7 @@ export async function GET(request: NextRequest) {
                 left: 0,
                 right: 0,
                 height: '1px',
-                background: 'linear-gradient(to right, transparent, rgba(255, 215, 56, 0.5), transparent)',
+                background: `linear-gradient(to right, transparent, ${colors.border}, transparent)`,
               }}
             />
 
@@ -347,8 +353,8 @@ export async function GET(request: NextRequest) {
                 alignItems: 'flex-start',
                 width: '120px',
                 padding: '8px 12px',
-                background: `radial-gradient(164% 171% at -70% -74%, rgba(255, 215, 56, 0.5) 10%, rgba(0, 0, 0, 0.7) 50%)`,
-                border: `1px solid rgba(255, 215, 56, 0.4)`,
+                background: `radial-gradient(164% 171% at -70% -74%, ${colors.glow} 10%, rgba(0, 0, 0, 0.7) 50%)`,
+                border: `1px solid ${colors.ring}`,
                 borderRadius: '8px',
               }}
             >
