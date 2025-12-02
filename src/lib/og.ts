@@ -17,6 +17,9 @@ export function isAtTopLevel(level: AuraLevel): boolean {
   return level === 'GOATED';
 }
 
+// Version bump this when OG image design changes to bust Twitter cache
+const OG_VERSION = 'v2';
+
 export function generateOGUrl(params: Partial<OGImageParams>): string {
   const searchParams = new URLSearchParams();
 
@@ -29,6 +32,7 @@ export function generateOGUrl(params: Partial<OGImageParams>): string {
   if (params.progress) searchParams.set('progress', params.progress);
   if (params.pointsToNext) searchParams.set('pointsToNext', params.pointsToNext);
   if (params.nextLevel) searchParams.set('nextLevel', params.nextLevel);
+  searchParams.set('v', OG_VERSION);
 
   return `${SITE_URL}/api/og?${searchParams.toString()}`;
 }
